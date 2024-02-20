@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Widget de Prueba</title>
-    <link rel="stylesheet" href="https://subscriber.tinta.wine/dist/style.css">
-</head>
-<body>
-    <div id="widget-container"></div>
-    <!-- Reemplaza la siguiente URL con la ubicación real de tu widget.js -->
-    <script src="https://subscriber.tinta.wine/dist/widget.js"></script>
-    <script>
-        // Asegúrate de que widget.js se haya cargado antes de llamar a esta función
-        initMyWidget('widget-container');
-    </script></body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Widget de Prueba</title>
+        <link rel="stylesheet" href="https://subscriber.tinta.wine/dist/style.css">
+    </head>
+    <body>
+        <div id="widget-container"></div>
+        <!-- Reemplaza la siguiente URL con la ubicación real de tu widget.js -->
+        <script type="module" src="https://subscriber.tinta.wine/dist/widget.js"></script>
+
+        <script type="module">
+            // Asegúrate de que widget.js se haya cargado antes de llamar a esta función
+            initMyWidget('widget-container');
+        </script>
+    </body>
 </html>
