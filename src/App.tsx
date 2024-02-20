@@ -9,6 +9,8 @@ function App() {
     <div className='flex flex-col items-center p-10'>
       <Button onClick={() => setCount((count) => count + 1)}>Increment count</Button>
       <p className='mt-4'>count is: {count}</p>
+
+      <p>Hola hola</p>
     </div>
   )
 }
