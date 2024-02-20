@@ -9,6 +9,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+  },
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/widget-init.tsx'), // Punto de entrada de tu librería/widget

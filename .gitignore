@@ -1,6 +1,6 @@
 # Agregado por RC
 bun.lockb
-# Logs
+.env
 logs
 *.log
 npm-debug.log*
