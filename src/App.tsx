@@ -1,20 +1,25 @@
-import { useState } from 'react'
 import './App.css'
-import { Button } from './components/ui/button'
+import { SubscribeForm } from './components/subscribe-form'
 
 type Props = {
   clientId: string | null
 }
 
 function App({ clientId }: Props) {
-  const [count, setCount] = useState(0)
+
+  console.log('clientId', clientId)
+
+  if (!clientId) {
+    return (
+      <div className='flex flex-col items-center p-10'>
+        <p>data-client-id no configurado</p>
+      </div>
+    )
+  }
 
   return (
     <div className='flex flex-col items-center p-10'>
-      <Button onClick={() => setCount((count) => count + 1)}>Increment count</Button>
-      <p className='mt-4'>count is: {count}</p>
-
-      <p>Client ID: {clientId}</p>
+      <SubscribeForm clientId={clientId} />
     </div>
   )
 }
