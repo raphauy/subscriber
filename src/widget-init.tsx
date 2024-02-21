@@ -4,20 +4,29 @@ import App from './App';
 
 declare global {
   interface Window {
-    initMyWidget: (containerId: string) => void;
+    initMyWidget: () => void;
   }
 }
 
-window.initMyWidget = (containerId) => {
-  const container = document.getElementById(containerId);
-  if (!container) {
-    console.error('El contenedor del widget no se encontró.');
-    return;
-  }
+const initMyWidgets = () => {
+  // Busca todos los elementos que tienen un atributo 'data-client-id'
+  const widgets = document.querySelectorAll('[data-client-id]');
 
-  // Leer el ID del cliente desde el atributo de datos
-  const clientId = container.getAttribute('clientId');
-
-  // Pasar el clientId como prop a tu aplicación React
-  ReactDOM.render(<React.StrictMode><App clientId={clientId} /></React.StrictMode>, container);
+  widgets.forEach(container => {
+    const clientId = container.getAttribute('data-client-id');
+    
+    // Asegúrate de que App pueda manejar `clientId` como prop
+    ReactDOM.render(<React.StrictMode><App clientId={clientId} /></React.StrictMode>, container);
+  });
 };
+
+// Autoinicializa los widgets cuando el DOM esté listo
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMyWidgets);
+} else {
+  initMyWidgets();
+}
+
+// Exponer la función de inicialización en window permite su uso manual si fuera necesario
+window.initMyWidget = initMyWidgets;
+
