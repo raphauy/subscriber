@@ -41,7 +41,7 @@ export function SubscribeForm({ clientId }: Props) {
   return (
     <div className="max-w-sm p-6 mx-auto space-y-6 bg-white border rounded-lg shadow-lg">
       <div className="space-y-2 text-center">
-        <h3 className="text-lg font-medium leading-none">Suscríbete a nuestro Newsletter</h3>
+        <h3 className="text-lg font-medium leading-none">Suscríbete a {clientId === "2" ? "mi" : "nuestro"} Newsletter</h3>
       </div>
       {response ? <ResponseBox response={response} /> :
         <div className="space-y-2">
